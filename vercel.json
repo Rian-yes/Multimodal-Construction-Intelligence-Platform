@@ -19,8 +19,8 @@
       "dest": "backend/main.py"
     },
     {
-      "src": "/(.*)",
-      "destination": "/frontend/dist/$1"
+      "src": "/((?!api/).*)",
+      "dest": "/frontend/dist/$1"
     }
   ]
 }
