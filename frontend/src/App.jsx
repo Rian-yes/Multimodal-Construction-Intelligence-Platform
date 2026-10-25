@@ -55,7 +55,7 @@ export default function App() {
     try {
       const formData = new FormData();
       if (safetyFile) formData.append('file', safetyFile);
-      const res = await fetch('http://localhost:8000/api/safety-audit', { method: 'POST', body: formData });
+      const res = await fetch('/api/safety-audit', { method: 'POST', body: formData });
       const data = await res.json();
       setSafetyResult(data);
     } catch {
@@ -88,7 +88,7 @@ export default function App() {
     try {
       const formData = new FormData();
       if (crackFile) formData.append('file', crackFile);
-      const res = await fetch('http://localhost:8000/api/crack-diagnosis', { method: 'POST', body: formData });
+      const res = await fetch('/api/crack-diagnosis', { method: 'POST', body: formData });
       const data = await res.json();
       setCrackResult(data);
     } catch {
@@ -115,7 +115,7 @@ export default function App() {
     setPlanLoading(true);
     await new Promise(r => setTimeout(r, 1000));
     try {
-      const res = await fetch('http://localhost:8000/api/project-planning', {
+      const res = await fetch('/api/project-planning', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ structure_type: structureType, built_up_sqft: Number(builtUpSqft), location_tier: locationTier, completion_percentage: Number(completionPct) })
@@ -149,7 +149,7 @@ export default function App() {
     setChatLoading(true);
     await new Promise(r => setTimeout(r, 1200));
     try {
-      const res = await fetch('http://localhost:8000/api/assistant-chat', {
+      const res = await fetch('/api/assistant-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: chatQuestion, weather_condition: weatherCondition })
