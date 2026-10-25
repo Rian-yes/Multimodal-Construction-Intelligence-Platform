@@ -221,18 +221,8 @@ export default function App() {
             })}
           </nav>
 
-          {/* Right Action / Skill Wallet Profile */}
+          {/* Right Action Profile */}
           <div className="flex items-center gap-3">
-            <div className="hidden lg:flex items-center gap-2.5 bg-[#F8FAFC] px-3.5 py-1.5 rounded-xl border border-[#E2E8F0]">
-              <div className="flex flex-col text-right">
-                <span className="text-[9px] text-[#64748B] font-bold uppercase tracking-wider">Skill Wallet</span>
-                <span className="text-[11px] font-mono font-bold text-[#4D7C0F]">JWT 300 Credits</span>
-              </div>
-              <div className="w-7 h-7 rounded-full bg-[#F7FEE7] border border-[#BEF264] flex items-center justify-center text-[#4D7C0F] font-bold text-[10px]">
-                AI
-              </div>
-            </div>
-
             <div className="flex items-center gap-2 bg-[#F7FEE7] border border-[#BEF264] px-3 py-1.5 rounded-xl text-xs font-semibold text-[#365314]">
               <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse"></span>
               <span>FastAPI Connected</span>
