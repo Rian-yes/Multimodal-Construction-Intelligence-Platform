@@ -209,7 +209,7 @@ class ChatRequest(BaseModel):
 def assistant_chat(req: ChatRequest):
     weather_advisories = {
         "High Wind": "CRITICAL ADVISORY per OSHA 1926: Suspend tower crane operations, secure loose scaffolding, and tie down tarpaulins.",
-        "Heavy Rain": "CRITICAL ADVISORY: Check site drainage pumps, cover electrical panels, and halt external electrical works.",
+        "Heavy Rain": "CRITICALADVISORY: Check site drainage pumps, cover electrical panels, and halt external electrical works.",
         "Extreme Heat": "CRITICAL ADVISORY per ACI 305R: Implement mandatory hydration breaks, rotate shifts, and provide shaded rest areas.",
         "Normal": "Standard operating conditions. Ensure routine safety checks."
     }
@@ -225,6 +225,6 @@ def assistant_chat(req: ChatRequest):
         ],
         "recommendations": [
             weather_alert,
-            "Consult site safety officer before executing high-risk operations."
+            "Consult site safety officer before executing high_risk operations."
         ]
     }
