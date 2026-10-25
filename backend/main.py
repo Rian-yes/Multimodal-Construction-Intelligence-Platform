@@ -37,38 +37,14 @@ def call_gemini_multimodal(prompt: str, image_bytes: bytes = None, mime_type: st
                 "data": image_bytes
             })
         
-        response = model.generate_content(contents)
-        return response.text
-    except Exception as e:
-        print(f"Gemini API Error: {e}")
-        return None
-
-def call_gemini_text(prompt: str) -> str:
-    if not GEMINI_API_KEY or GEMINI_API_KEY == "your_gemini_api_key_here":
-        return None
-    try:
-        import google.generativeai as genai
-        genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel("gemini-1.5-flash")
-        response = model.generate_content(prompt)
-        return response.text
-    except Exception as e:
-        print(f"Gemini API Error: {e}")
-        return None
-
-
-@app.get("/api/health")
-def health_check():
-    return {"status": "ok", "gemini_configured": bool(GEMINI_API_KEY and GEMINI_API_KEY != "your_gemini_api_key_here")}
-
-
-@app.post("/api/safety-audit")
-async def safety_audit(file: UploadFile = File(...)):
-    contents = await file.read()
-    mime = file.content_type or "image/jpeg"
-    
     prompt = """
-    Analyze this construction site image for OSHA and IS 456 safety compliance.
+    Analyze this construction site image for rigorous compliance against:
+    - OSHA 29 CFR 1926 (Safety and Health Regulations for Construction)
+    - IS 456:2000 (Plain and Reinforced Concrete Code of Practice)
+    - IS 13415:1992 (Safety for Working on Scaffolds)
+    - IS 2925:1984 (Specification for Industrial Safety Helmets)
+    - IS 3521:1999 (Industrial Safety Belts and Harnesses)
+    
     Return ONLY a valid JSON object with this exact structure:
     {
       "summary": "Brief summary of safety observations.",

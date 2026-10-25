@@ -96,5 +96,18 @@ npm run dev
 
 ---
 
+## 📜 Regulatory Standards & Codes Referenced
+
+- **OSHA 29 CFR 1926**: Safety and Health Regulations for Construction
+- **IS 456:2000**: Plain and Reinforced Concrete - Code of Practice (Bureau of Indian Standards)
+- **IS 13415:1992**: Code of Safety for Working on Scaffolds
+- **IS 2925:1984**: Specification for Industrial Safety Helmets
+- **IS 3521:1999**: Industrial Safety Belts and Harnesses
+- **ACI 224R-01**: Control of Cracking in Concrete Structures
+- **ACI 305R / 306R**: Hot and Cold Weather Concreting Guides
+- **CPWD Plinth Area Rates & Civil Norms (2024-2026)**
+
+---
+
 ## ⚠️ Important Disclaimer
 AI-generated construction assessments and automated image inspections are preliminary decision-support tools. They **cannot** establish structural safety or compliance conclusively without certified human engineering inspection and adherence to local regulatory codes.
