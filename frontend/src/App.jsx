@@ -17,7 +17,8 @@ import {
   Sparkles,
   ChevronRight,
   Zap,
-  Info
+  CheckSquare,
+  HelpCircle
 } from 'lucide-react';
 
 export default function App() {
@@ -180,52 +181,48 @@ export default function App() {
   ];
 
   return (
-    <div className="flex h-screen bg-[#030712] text-slate-100 overflow-hidden font-sans selection:bg-amber-500/30 selection:text-amber-200">
+    <div className="flex h-screen bg-[#FAF9F6] text-[#0F172A] overflow-hidden font-sans">
       
-      {/* Modern High-End Sidebar */}
+      {/* Clean White & Orange Sidebar inspired by CharchaSearch */}
       <motion.aside 
-        initial={{ x: -50, opacity: 0 }}
+        initial={{ x: -30, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="w-80 bg-[#080e1a]/90 backdrop-blur-2xl border-r border-slate-800/80 flex flex-col justify-between p-6 z-30 shadow-2xl"
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        className="w-72 bg-white border-r border-[#E2E8F0] flex flex-col justify-between p-6 z-30 shadow-sm"
       >
         <div>
           {/* Brand Logo & Header */}
-          <div className="flex items-center gap-3.5 mb-8">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 to-orange-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-              <div className="relative p-3 bg-slate-950 rounded-2xl border border-slate-800 flex items-center justify-center text-amber-400 shadow-xl">
-                <Building2 className="w-6 h-6" />
-              </div>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-3 bg-[#FFF7ED] border border-[#FED7AA] rounded-2xl text-[#FF5E00] shadow-sm">
+              <Building2 className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="font-extrabold text-base text-white tracking-tight flex items-center gap-1.5">
-                ConstructIntel <span className="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-1.5 py-0.5 rounded-full font-mono">AI v2.0</span>
+              <h1 className="font-extrabold text-base text-[#0F172A] tracking-tight flex items-center gap-1.5">
+                ConstructIntel <span className="text-[10px] bg-[#FFF7ED] text-[#FF5E00] border border-[#FED7AA] px-2 py-0.5 rounded-full font-mono font-bold">AI</span>
               </h1>
-              <p className="text-xs text-slate-400 font-medium">Multimodal Intelligence Platform</p>
+              <p className="text-xs text-[#64748B] font-medium">Multimodal Platform v2.0</p>
             </div>
           </div>
 
           {/* API Key Box */}
-          <div className="mb-6 bg-gradient-to-b from-slate-900/90 to-slate-950/90 p-4 rounded-2xl border border-slate-800/80 shadow-lg relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all"></div>
-            <label className="text-xs font-bold text-slate-200 flex items-center gap-2 mb-2">
-              <Key className="w-3.5 h-3.5 text-amber-400" /> Gemini API Key
+          <div className="mb-6 bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0] shadow-sm">
+            <label className="text-xs font-bold text-[#1E293B] flex items-center gap-2 mb-2">
+              <Key className="w-3.5 h-3.5 text-[#FF5E00]" /> Gemini API Key
             </label>
             <input 
               type="password" 
               value={apiKey} 
               onChange={(e) => setApiKey(e.target.value)}
               placeholder="AI Studio Key (Optional)"
-              className="w-full bg-slate-950 border border-slate-800/80 rounded-xl px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-amber-500/80 focus:ring-2 focus:ring-amber-500/20 transition-all font-mono"
+              className="w-full bg-white border border-[#CBD5E1] rounded-xl px-3.5 py-2.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#FF5E00] focus:ring-2 focus:ring-[#FF5E00]/20 transition-all font-mono"
             />
-            <p className="text-[10px] text-slate-400 mt-2 flex items-center gap-1">
-              <Zap className="w-3 h-3 text-emerald-400" /> Auto-simulated if unsupplied
+            <p className="text-[10px] text-[#64748B] mt-2 flex items-center gap-1 font-medium">
+              <Zap className="w-3 h-3 text-[#84CC16]" /> Auto-simulated if unsupplied
             </p>
           </div>
 
           {/* Navigation */}
-          <div className="text-[10px] uppercase tracking-widest text-slate-300 font-bold mb-3 px-2">Navigation Modules</div>
+          <div className="text-[10px] uppercase tracking-widest text-[#64748B] font-bold mb-3 px-2">Navigation Modules</div>
           <nav className="space-y-1.5">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -234,17 +231,17 @@ export default function App() {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl text-xs font-semibold transition-all duration-300 group relative overflow-hidden ${
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl text-xs font-bold transition-all duration-200 group ${
                     isActive 
-                      ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-lg shadow-amber-500/25 font-bold scale-[1.02]' 
-                      : 'text-slate-400 hover:bg-slate-900/80 hover:text-slate-200'
+                      ? 'bg-[#FFF7ED] text-[#FF5E00] border border-[#FED7AA] shadow-sm' 
+                      : 'text-[#64748B] hover:bg-[#FAFAF9] hover:text-[#0F172A]'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className={`w-4 h-4 transition-transform group-hover:scale-110 ${isActive ? 'text-slate-950' : 'text-amber-400'}`} />
+                    <Icon className={`w-4 h-4 transition-transform group-hover:scale-110 ${isActive ? 'text-[#FF5E00]' : 'text-[#64748B]'}`} />
                     <span>{item.label}</span>
                   </div>
-                  <span className={`text-[9px] px-2 py-0.5 rounded-full font-mono font-bold ${isActive ? 'bg-slate-950/20 text-slate-950' : 'bg-slate-800 text-slate-400'}`}>
+                  <span className={`text-[9px] px-2 py-0.5 rounded-full font-mono font-bold ${isActive ? 'bg-[#FF5E00] text-white' : 'bg-[#F1F5F9] text-[#64748B]'}`}>
                     {item.badge}
                   </span>
                 </button>
@@ -254,32 +251,32 @@ export default function App() {
         </div>
 
         {/* Skill Wallet Widget */}
-        <div className="p-4 bg-gradient-to-b from-slate-900/90 to-slate-950 rounded-2xl border border-slate-800/80 shadow-xl space-y-3">
+        <div className="p-4 bg-[#FAFAF9] rounded-2xl border border-[#E2E8F0] shadow-sm space-y-2.5">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Skill Wallet
+            <span className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-[#FF5E00]" /> Skill Wallet
             </span>
-            <span className="text-xs font-mono font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-md">JWT 300</span>
+            <span className="text-xs font-mono font-bold text-[#4D7C0F] bg-[#F7FEE7] border border-[#BEF264] px-2 py-0.5 rounded-md">JWT 300</span>
           </div>
-          <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden p-0.5 border border-slate-800">
-            <div className="bg-gradient-to-r from-amber-500 to-orange-500 h-full rounded-full w-full shadow-sm"></div>
+          <div className="w-full bg-[#E2E8F0] h-2 rounded-full overflow-hidden p-0.5">
+            <div className="bg-[#84CC16] h-full rounded-full w-full"></div>
           </div>
-          <div className="flex items-center justify-between text-[10px] text-slate-400">
+          <div className="flex items-center justify-between text-[10px] text-[#64748B] font-medium">
             <span>Capstone Project 1</span>
-            <span className="text-emerald-400 font-semibold flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live
+            <span className="text-[#4D7C0F] font-bold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#84CC16] animate-pulse"></span> Active
             </span>
           </div>
         </div>
       </motion.aside>
 
       {/* Main Content Workspace */}
-      <div className="flex-1 flex flex-col overflow-hidden bg-gradient-to-br from-[#030712] via-[#070e1c] to-[#030712] bg-grid-pattern">
+      <div className="flex-1 flex flex-col overflow-hidden bg-[#FAF9F6]">
         
         {/* Top Header */}
-        <header className="h-20 border-b border-slate-800/80 bg-[#080e1a]/80 backdrop-blur-2xl px-10 flex items-center justify-between z-20 shadow-lg">
+        <header className="h-20 border-b border-[#E2E8F0] bg-white px-10 flex items-center justify-between z-20 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="p-2.5 bg-slate-900/90 border border-slate-800 rounded-xl text-amber-400 shadow-inner">
+            <div className="p-2.5 bg-[#FFF7ED] border border-[#FED7AA] rounded-xl text-[#FF5E00]">
               {activeTab === 'safety' && <ShieldCheck className="w-5 h-5" />}
               {activeTab === 'crack' && <Activity className="w-5 h-5" />}
               {activeTab === 'planning' && <Calculator className="w-5 h-5" />}
@@ -287,16 +284,16 @@ export default function App() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#FF5E00] bg-[#FFF7ED] border border-[#FED7AA] px-2 py-0.5 rounded">
                   {activeTab === 'safety' && 'Module 1'}
                   {activeTab === 'crack' && 'Module 2'}
                   {activeTab === 'planning' && 'Module 3'}
                   {activeTab === 'assistant' && 'Module 4'}
                 </span>
-                <ChevronRight className="w-3 h-3 text-slate-600" />
-                <span className="text-xs text-slate-400 font-medium">Multimodal Construction Workspace</span>
+                <ChevronRight className="w-3 h-3 text-[#CBD5E1]" />
+                <span className="text-xs text-[#64748B] font-medium">Multimodal Construction Workspace</span>
               </div>
-              <h2 className="text-base font-extrabold text-white tracking-tight mt-0.5">
+              <h2 className="text-base font-extrabold text-[#0F172A] tracking-tight mt-0.5">
                 {activeTab === 'safety' && 'Site Safety & PPE Compliance Audit (OSHA & IS 456)'}
                 {activeTab === 'crack' && 'Crack Diagnostics & Structural Integrity Analysis'}
                 {activeTab === 'planning' && 'Construction Planning & Real Estate Valuation Engine'}
@@ -306,9 +303,9 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2.5 bg-slate-900/90 border border-slate-800/80 px-4 py-2 rounded-2xl shadow-inner">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-lg shadow-emerald-500/50"></span>
-              <span className="text-xs text-slate-200 font-bold">FastAPI + Gemini Active</span>
+            <div className="flex items-center gap-2.5 bg-[#F7FEE7] border border-[#BEF264] px-4 py-2 rounded-2xl shadow-sm">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#84CC16] animate-pulse"></span>
+              <span className="text-xs text-[#365314] font-bold">FastAPI + Gemini Connected</span>
             </div>
           </div>
         </header>
@@ -321,14 +318,14 @@ export default function App() {
             <motion.div 
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-r from-amber-500/10 via-orange-500/5 to-transparent border border-amber-500/20 rounded-2xl p-4.5 flex items-start gap-4 shadow-xl backdrop-blur-md"
+              className="bg-[#FFF7ED] border border-[#FED7AA] rounded-2xl p-4.5 flex items-start gap-4 shadow-sm"
             >
-              <div className="p-2 bg-amber-500/20 rounded-xl text-amber-400 shrink-0 mt-0.5">
+              <div className="p-2 bg-[#FF5E00]/10 rounded-xl text-[#FF5E00] shrink-0 mt-0.5">
                 <Sparkles className="w-4 h-4" />
               </div>
               <div className="text-xs space-y-1">
-                <p className="font-bold text-amber-200">Multimodal Intelligence Disclaimer</p>
-                <p className="text-slate-300/90 leading-relaxed">
+                <p className="font-extrabold text-[#9A3412]">Multimodal Intelligence Disclaimer</p>
+                <p className="text-[#431407]/90 leading-relaxed font-medium">
                   AI-generated construction assessments serve as advanced preliminary decision-support tools. Automated visual analytics and metric projections cannot establish absolute structural safety without certified human engineering inspection.
                 </p>
               </div>
@@ -342,93 +339,92 @@ export default function App() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.25 }}
                   className="grid grid-cols-1 lg:grid-cols-3 gap-8"
                 >
-                  <div className="glass-panel rounded-3xl p-7 shadow-2xl border border-slate-800/80 space-y-6">
+                  <div className="charcha-card p-7 space-y-6">
                     <div>
-                      <h3 className="text-sm font-extrabold text-white flex items-center gap-2 mb-1">
-                        <Upload className="w-4 h-4 text-amber-400" /> Site Photo Ingestion
+                      <h3 className="text-sm font-extrabold text-[#0F172A] flex items-center gap-2 mb-1">
+                        <Upload className="w-4 h-4 text-[#FF5E00]" /> Site Photo Ingestion
                       </h3>
-                      <p className="text-xs text-slate-400">Upload high-resolution construction site captures.</p>
+                      <p className="text-xs text-[#64748B]">Upload high-resolution construction site captures.</p>
                     </div>
 
                     <form onSubmit={handleSafetyAudit} className="space-y-5">
-                      <div className="border-2 border-dashed border-slate-700/80 rounded-2xl p-7 text-center hover:border-amber-500/80 transition-all cursor-pointer bg-slate-950/50 group relative overflow-hidden">
-                        <div className="absolute inset-0 bg-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <Upload className="w-8 h-8 text-amber-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                      <div className="border-2 border-dashed border-[#CBD5E1] rounded-2xl p-7 text-center hover:border-[#FF5E00] transition-all cursor-pointer bg-[#FAFAF9] group">
+                        <Upload className="w-8 h-8 text-[#FF5E00] mx-auto mb-3 group-hover:scale-110 transition-transform" />
                         <input 
                           type="file" 
                           accept="image/*" 
                           onChange={(e) => setSafetyFile(e.target.files[0])}
-                          className="w-full text-xs text-slate-400 file:mr-4 file:py-2.5 file:px-5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400 transition-all cursor-pointer"
+                          className="w-full text-xs text-[#64748B] file:mr-4 file:py-2.5 file:px-5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#FF5E00] file:text-white hover:file:bg-[#E05300] transition-all cursor-pointer"
                         />
-                        <p className="text-xs text-slate-300 mt-3 font-semibold">{safetyFile ? safetyFile.name : 'Drag & drop site photo or browse'}</p>
+                        <p className="text-xs text-[#334155] mt-3 font-bold">{safetyFile ? safetyFile.name : 'Drag & drop site photo or browse'}</p>
                       </div>
 
                       <button 
                         type="submit" 
                         disabled={safetyLoading}
-                        className="w-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-extrabold py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2.5 transition-all shadow-xl shadow-amber-500/25 disabled:opacity-50 group"
+                        className="w-full charcha-btn py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2.5 disabled:opacity-50"
                       >
-                        {safetyLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ShieldCheck className="w-4 h-4 group-hover:scale-110 transition-transform" />}
+                        {safetyLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ShieldCheck className="w-4 h-4" />}
                         Run OSHA & IS 456 Safety Audit
                       </button>
                     </form>
                   </div>
 
-                  <div className="lg:col-span-2 glass-panel rounded-3xl p-7 shadow-2xl border border-slate-800/80 flex flex-col justify-between">
+                  <div className="lg:col-span-2 charcha-card p-7 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-sm font-extrabold text-white mb-6 flex items-center justify-between">
+                      <h3 className="text-sm font-extrabold text-[#0F172A] mb-6 flex items-center justify-between">
                         <span>Multimodal Audit Report & PPE Compliance</span>
-                        {safetyResult && <span className="text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full">Analysis Complete</span>}
+                        {safetyResult && <span className="text-xs font-mono bg-[#F7FEE7] text-[#4D7C0F] border border-[#BEF264] px-3 py-1 rounded-full font-bold">Analysis Complete</span>}
                       </h3>
 
                       {safetyResult ? (
                         <div className="space-y-6">
-                          <div className="grid grid-cols-2 gap-4 bg-slate-950/80 p-5 rounded-2xl border border-slate-800/80 shadow-inner">
+                          <div className="grid grid-cols-2 gap-4 bg-[#FAFAF9] p-5 rounded-2xl border border-[#E2E8F0]">
                             <div>
-                              <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Overall Status</p>
-                              <p className="text-sm font-extrabold text-white mt-1">{safetyResult.overall_status}</p>
+                              <p className="text-[11px] text-[#64748B] font-bold uppercase tracking-wider">Overall Status</p>
+                              <p className="text-sm font-extrabold text-[#0F172A] mt-1">{safetyResult.overall_status}</p>
                             </div>
                             <div className="text-right">
-                              <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Safety Score</p>
-                              <p className={`text-2xl font-extrabold font-mono mt-0.5 ${safetyResult.safety_score >= 80 ? 'text-emerald-400' : 'text-amber-400'}`}>
-                                {safetyResult.safety_score}<span className="text-xs text-slate-500">/100</span>
+                              <p className="text-[11px] text-[#64748B] font-bold uppercase tracking-wider">Safety Score</p>
+                              <p className={`text-2xl font-extrabold font-mono mt-0.5 ${safetyResult.safety_score >= 80 ? 'text-[#4D7C0F]' : 'text-[#D97706]'}`}>
+                                {safetyResult.safety_score}<span className="text-xs text-[#94A3B8]">/100</span>
                               </p>
                             </div>
                           </div>
 
-                          <p className="text-xs text-slate-200 bg-slate-950/80 p-5 rounded-2xl border border-slate-800/80 leading-relaxed font-medium">
+                          <p className="text-xs text-[#1E293B] bg-[#FAFAF9] p-5 rounded-2xl border border-[#E2E8F0] leading-relaxed font-semibold">
                             {safetyResult.summary}
                           </p>
 
                           <div className="grid grid-cols-2 gap-4">
                             {safetyResult.ppe_detection && Object.entries(safetyResult.ppe_detection).map(([item, val]) => (
-                              <div key={item} className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
+                              <div key={item} className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0]">
                                 <div className="flex items-center justify-between mb-2">
-                                  <span className="text-xs font-extrabold text-slate-200 capitalize">{item.replace('_', ' ')}</span>
-                                  <span className={`text-[10px] px-3 py-0.5 rounded-full font-extrabold ${val.status === 'Compliant' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'}`}>
+                                  <span className="text-xs font-extrabold text-[#0F172A] capitalize">{item.replace('_', ' ')}</span>
+                                  <span className={`text-[10px] px-3 py-0.5 rounded-full font-extrabold ${val.status === 'Compliant' ? 'bg-[#F7FEE7] text-[#4D7C0F] border border-[#BEF264]' : 'bg-[#FFF7ED] text-[#C2410C] border border-[#FED7AA]'}`}>
                                     {val.status}
                                   </span>
                                 </div>
-                                <p className="text-[11px] text-slate-400 leading-normal">{val.details}</p>
+                                <p className="text-[11px] text-[#64748B] leading-normal font-medium">{val.details}</p>
                               </div>
                             ))}
                           </div>
 
                           {safetyResult.findings && safetyResult.findings.length > 0 && (
                             <div className="space-y-3">
-                              <h4 className="text-xs font-extrabold text-slate-200 uppercase tracking-wider">Identified Hazards & Corrective Remedies</h4>
+                              <h4 className="text-xs font-extrabold text-[#0F172A] uppercase tracking-wider">Identified Hazards & Corrective Remedies</h4>
                               {safetyResult.findings.map((f, i) => (
-                                <div key={i} className="bg-red-950/20 border border-red-900/40 p-4 rounded-2xl flex items-start gap-3.5">
-                                  <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                                <div key={i} className="bg-[#FEF2F2] border border-[#FCA5A5]/60 p-4 rounded-2xl flex items-start gap-3.5">
+                                  <AlertTriangle className="w-4 h-4 text-[#DC2626] shrink-0 mt-0.5" />
                                   <div className="text-xs space-y-1">
                                     <div className="flex items-center justify-between">
-                                      <p className="font-extrabold text-red-200 text-sm">{f.hazard}</p>
-                                      <span className="text-[10px] bg-red-900/60 text-red-300 px-2.5 py-0.5 rounded font-mono font-bold">Severity: {f.severity}</span>
+                                      <p className="font-extrabold text-[#991B1B] text-sm">{f.hazard}</p>
+                                      <span className="text-[10px] bg-[#FEE2E2] text-[#991B1B] px-2.5 py-0.5 rounded font-mono font-bold">Severity: {f.severity}</span>
                                     </div>
-                                    <p className="text-slate-300 font-medium"><strong>Remedy:</strong> {f.remedy}</p>
+                                    <p className="text-[#334155] font-medium"><strong>Remedy:</strong> {f.remedy}</p>
                                   </div>
                                 </div>
                               ))}
@@ -436,15 +432,15 @@ export default function App() {
                           )}
                         </div>
                       ) : (
-                        <div className="h-72 flex flex-col items-center justify-center text-slate-500 border border-dashed border-slate-800 rounded-3xl bg-slate-950/30">
-                          <ShieldCheck className="w-12 h-12 mb-3 opacity-30 text-amber-400 animate-pulse" />
-                          <p className="text-xs font-semibold">Upload site photo & run audit to generate complete structured intelligence.</p>
+                        <div className="h-72 flex flex-col items-center justify-center text-[#94A3B8] border border-dashed border-[#CBD5E1] rounded-3xl bg-[#FAFAF9]">
+                          <ShieldCheck className="w-12 h-12 mb-3 opacity-45 text-[#FF5E00]" />
+                          <p className="text-xs font-bold text-[#64748B]">Upload site photo & run audit to generate complete structured intelligence.</p>
                         </div>
                       )}
                     </div>
 
                     {safetyResult && (
-                      <div className="mt-6 pt-5 border-t border-slate-800/80 flex justify-end">
+                      <div className="mt-6 pt-5 border-t border-[#E2E8F0] flex justify-end">
                         <button 
                           onClick={() => {
                             const blob = new Blob([JSON.stringify(safetyResult, null, 2)], { type: 'application/json' });
@@ -454,9 +450,9 @@ export default function App() {
                             a.download = 'safety-audit-report.json';
                             a.click();
                           }}
-                          className="bg-slate-800 hover:bg-slate-700 text-slate-200 px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all border border-slate-700 shadow-lg"
+                          className="bg-white hover:bg-[#FAFAF9] text-[#0F172A] px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all border border-[#CBD5E1] shadow-sm"
                         >
-                          <FileText className="w-4 h-4 text-amber-400" /> Export JSON Report
+                          <FileText className="w-4 h-4 text-[#FF5E00]" /> Export JSON Report
                         </button>
                       </div>
                     )}
@@ -471,83 +467,83 @@ export default function App() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.25 }}
                   className="grid grid-cols-1 lg:grid-cols-3 gap-8"
                 >
-                  <div className="glass-panel rounded-3xl p-7 shadow-2xl border border-slate-800/80 space-y-6">
+                  <div className="charcha-card p-7 space-y-6">
                     <div>
-                      <h3 className="text-sm font-extrabold text-white flex items-center gap-2 mb-1">
-                        <Upload className="w-4 h-4 text-amber-400" /> Surface Crack Ingestion
+                      <h3 className="text-sm font-extrabold text-[#0F172A] flex items-center gap-2 mb-1">
+                        <Upload className="w-4 h-4 text-[#FF5E00]" /> Surface Crack Ingestion
                       </h3>
-                      <p className="text-xs text-slate-400">Upload close-up concrete or masonry defect images.</p>
+                      <p className="text-xs text-[#64748B]">Upload close-up concrete or masonry defect images.</p>
                     </div>
 
                     <form onSubmit={handleCrackDiagnosis} className="space-y-5">
-                      <div className="border-2 border-dashed border-slate-700/80 rounded-2xl p-7 text-center hover:border-amber-500/80 transition-all cursor-pointer bg-slate-950/50 group relative overflow-hidden">
-                        <Activity className="w-8 h-8 text-amber-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                      <div className="border-2 border-dashed border-[#CBD5E1] rounded-2xl p-7 text-center hover:border-[#FF5E00] transition-all cursor-pointer bg-[#FAFAF9] group">
+                        <Activity className="w-8 h-8 text-[#FF5E00] mx-auto mb-3 group-hover:scale-110 transition-transform" />
                         <input 
                           type="file" 
                           accept="image/*" 
                           onChange={(e) => setCrackFile(e.target.files[0])}
-                          className="w-full text-xs text-slate-400 file:mr-4 file:py-2.5 file:px-5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400 transition-all cursor-pointer"
+                          className="w-full text-xs text-[#64748B] file:mr-4 file:py-2.5 file:px-5 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#FF5E00] file:text-white hover:file:bg-[#E05300] transition-all cursor-pointer"
                         />
-                        <p className="text-xs text-slate-300 mt-3 font-semibold">{crackFile ? crackFile.name : 'Drag & drop defect surface image'}</p>
+                        <p className="text-xs text-[#334155] mt-3 font-bold">{crackFile ? crackFile.name : 'Drag & drop defect surface image'}</p>
                       </div>
 
                       <button 
                         type="submit" 
                         disabled={crackLoading}
-                        className="w-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-extrabold py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2.5 transition-all shadow-xl shadow-amber-500/25 disabled:opacity-50 group"
+                        className="w-full charcha-btn py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2.5 disabled:opacity-50"
                       >
-                        {crackLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Activity className="w-4 h-4 group-hover:scale-110 transition-transform" />}
+                        {crackLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Activity className="w-4 h-4" />}
                         Analyze Structural Defect
                       </button>
                     </form>
                   </div>
 
-                  <div className="lg:col-span-2 glass-panel rounded-3xl p-7 shadow-2xl border border-slate-800/80 flex flex-col justify-between">
+                  <div className="lg:col-span-2 charcha-card p-7 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-sm font-extrabold text-white mb-6">Crack Diagnostics & Engineering Repair Protocol</h3>
+                      <h3 className="text-sm font-extrabold text-[#0F172A] mb-6">Crack Diagnostics & Engineering Repair Protocol</h3>
 
                       {crackResult ? (
                         <div className="space-y-6">
                           <div className="grid grid-cols-3 gap-4">
-                            <div className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
-                              <p className="text-[11px] text-slate-400 font-bold uppercase">Defect Type</p>
-                              <p className="text-xs font-extrabold text-amber-400 mt-1">{crackResult.defect_type}</p>
+                            <div className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0]">
+                              <p className="text-[11px] text-[#64748B] font-bold uppercase">Defect Type</p>
+                              <p className="text-xs font-extrabold text-[#FF5E00] mt-1">{crackResult.defect_type}</p>
                             </div>
-                            <div className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
-                              <p className="text-[11px] text-slate-400 font-bold uppercase">Est. Width</p>
-                              <p className="text-xs font-extrabold text-white mt-1 font-mono">{crackResult.estimated_width_mm} mm</p>
+                            <div className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0]">
+                              <p className="text-[11px] text-[#64748B] font-bold uppercase">Est. Width</p>
+                              <p className="text-xs font-extrabold text-[#0F172A] mt-1 font-mono">{crackResult.estimated_width_mm} mm</p>
                             </div>
-                            <div className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
-                              <p className="text-[11px] text-slate-400 font-bold uppercase">Urgency</p>
-                              <p className="text-xs font-extrabold text-red-400 mt-1">{crackResult.urgency}</p>
+                            <div className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0]">
+                              <p className="text-[11px] text-[#64748B] font-bold uppercase">Urgency</p>
+                              <p className="text-xs font-extrabold text-[#DC2626] mt-1">{crackResult.urgency}</p>
                             </div>
                           </div>
 
-                          <p className="text-xs text-slate-200 bg-slate-950/80 p-5 rounded-2xl border border-slate-800/80 leading-relaxed font-medium">
+                          <p className="text-xs text-[#1E293B] bg-[#FAFAF9] p-5 rounded-2xl border border-[#E2E8F0] leading-relaxed font-semibold">
                             {crackResult.summary}
                           </p>
 
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <div className="bg-slate-950/80 p-5 rounded-2xl border border-slate-800/80">
-                              <h4 className="text-xs font-extrabold text-slate-200 uppercase tracking-wider mb-3">Root Causes</h4>
-                              <ul className="space-y-2.5 text-xs text-slate-300">
+                            <div className="bg-[#FAFAF9] p-5 rounded-2xl border border-[#E2E8F0]">
+                              <h4 className="text-xs font-extrabold text-[#0F172A] uppercase tracking-wider mb-3">Root Causes</h4>
+                              <ul className="space-y-2.5 text-xs text-[#334155]">
                                 {crackResult.root_causes?.map((rc, i) => (
-                                  <li key={i} className="flex items-center gap-2.5 font-medium">
-                                    <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0"></span> {rc}
+                                  <li key={i} className="flex items-center gap-2.5 font-semibold">
+                                    <span className="w-2 h-2 rounded-full bg-[#FF5E00] shrink-0"></span> {rc}
                                   </li>
                                 ))}
                               </ul>
                             </div>
 
-                            <div className="bg-slate-950/80 p-5 rounded-2xl border border-slate-800/80">
-                              <h4 className="text-xs font-extrabold text-slate-200 uppercase tracking-wider mb-3">Recommended Repairs</h4>
-                              <ul className="space-y-2.5 text-xs text-slate-300">
+                            <div className="bg-[#FAFAF9] p-5 rounded-2xl border border-[#E2E8F0]">
+                              <h4 className="text-xs font-extrabold text-[#0F172A] uppercase tracking-wider mb-3">Recommended Repairs</h4>
+                              <ul className="space-y-2.5 text-xs text-[#334155]">
                                 {crackResult.recommended_repairs?.map((rep, i) => (
-                                  <li key={i} className="flex items-center gap-2.5 font-medium">
-                                    <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span> {rep}
+                                  <li key={i} className="flex items-center gap-2.5 font-semibold">
+                                    <span className="w-2 h-2 rounded-full bg-[#84CC16] shrink-0"></span> {rep}
                                   </li>
                                 ))}
                               </ul>
@@ -555,9 +551,9 @@ export default function App() {
                           </div>
                         </div>
                       ) : (
-                        <div className="h-72 flex flex-col items-center justify-center text-slate-500 border border-dashed border-slate-800 rounded-3xl bg-slate-950/30">
-                          <Activity className="w-12 h-12 mb-3 opacity-30 text-amber-400 animate-pulse" />
-                          <p className="text-xs font-semibold">Upload defect surface photo for AI structural diagnosis and repair plan.</p>
+                        <div className="h-72 flex flex-col items-center justify-center text-[#94A3B8] border border-dashed border-[#CBD5E1] rounded-3xl bg-[#FAFAF9]">
+                          <Activity className="w-12 h-12 mb-3 opacity-45 text-[#FF5E00]" />
+                          <p className="text-xs font-bold text-[#64748B]">Upload defect surface photo for AI structural diagnosis and repair plan.</p>
                         </div>
                       )}
                     </div>
@@ -572,24 +568,24 @@ export default function App() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.25 }}
                   className="grid grid-cols-1 lg:grid-cols-3 gap-8"
                 >
-                  <div className="glass-panel rounded-3xl p-7 shadow-2xl border border-slate-800/80 space-y-6">
+                  <div className="charcha-card p-7 space-y-6">
                     <div>
-                      <h3 className="text-sm font-extrabold text-white flex items-center gap-2 mb-1">
-                        <Calculator className="w-4 h-4 text-amber-400" /> Project Parameters
+                      <h3 className="text-sm font-extrabold text-[#0F172A] flex items-center gap-2 mb-1">
+                        <Calculator className="w-4 h-4 text-[#FF5E00]" /> Project Parameters
                       </h3>
-                      <p className="text-xs text-slate-400">Configure building scope, tier, and milestone.</p>
+                      <p className="text-xs text-[#64748B]">Configure building scope, tier, and milestone.</p>
                     </div>
 
                     <form onSubmit={handleProjectPlanning} className="space-y-4">
                       <div>
-                        <label className="text-xs font-bold text-slate-300 block mb-1.5">Structure Type</label>
+                        <label className="text-xs font-bold text-[#1E293B] block mb-1.5">Structure Type</label>
                         <select 
                           value={structureType} 
                           onChange={(e) => setStructureType(e.target.value)}
-                          className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-3 text-xs text-slate-200 focus:outline-none focus:border-amber-500 font-semibold"
+                          className="w-full bg-[#FAFAF9] border border-[#CBD5E1] rounded-xl px-3.5 py-3 text-xs text-[#0F172A] focus:outline-none focus:border-[#FF5E00] font-bold"
                         >
                           <option value="Commercial Complex">Commercial Complex</option>
                           <option value="Residential High-Rise">Residential High-Rise</option>
@@ -599,21 +595,21 @@ export default function App() {
                       </div>
 
                       <div>
-                        <label className="text-xs font-bold text-slate-300 block mb-1.5">Built-up Area (Sq. Ft.)</label>
+                        <label className="text-xs font-bold text-[#1E293B] block mb-1.5">Built-up Area (Sq. Ft.)</label>
                         <input 
                           type="number" 
                           value={builtUpSqft} 
                           onChange={(e) => setBuiltUpSqft(e.target.value)}
-                          className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-3 text-xs text-slate-200 focus:outline-none focus:border-amber-500 font-mono font-bold"
+                          className="w-full bg-[#FAFAF9] border border-[#CBD5E1] rounded-xl px-3.5 py-3 text-xs text-[#0F172A] focus:outline-none focus:border-[#FF5E00] font-mono font-bold"
                         />
                       </div>
 
                       <div>
-                        <label className="text-xs font-bold text-slate-300 block mb-1.5">Location Tier (India)</label>
+                        <label className="text-xs font-bold text-[#1E293B] block mb-1.5">Location Tier (India)</label>
                         <select 
                           value={locationTier} 
                           onChange={(e) => setLocationTier(e.target.value)}
-                          className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-3 text-xs text-slate-200 focus:outline-none focus:border-amber-500 font-semibold"
+                          className="w-full bg-[#FAFAF9] border border-[#CBD5E1] rounded-xl px-3.5 py-3 text-xs text-[#0F172A] focus:outline-none focus:border-[#FF5E00] font-bold"
                         >
                           <option value="Tier 1">Tier 1 (Mumbai, Delhi, Bangalore)</option>
                           <option value="Tier 2">Tier 2 (Pune, Jaipur, Ahmedabad)</option>
@@ -622,9 +618,9 @@ export default function App() {
                       </div>
 
                       <div>
-                        <div className="flex justify-between text-xs text-slate-300 mb-2 font-bold">
+                        <div className="flex justify-between text-xs text-[#1E293B] mb-2 font-bold">
                           <span>Completion Percentage</span>
-                          <span className="text-amber-400 font-mono">{completionPct}%</span>
+                          <span className="text-[#FF5E00] font-mono">{completionPct}%</span>
                         </div>
                         <input 
                           type="range" 
@@ -632,14 +628,14 @@ export default function App() {
                           max="100" 
                           value={completionPct} 
                           onChange={(e) => setCompletionPct(e.target.value)}
-                          className="w-full accent-amber-500 cursor-pointer h-2 bg-slate-900 rounded-lg"
+                          className="w-full accent-[#FF5E00] cursor-pointer h-2 bg-[#E2E8F0] rounded-lg"
                         />
                       </div>
 
                       <button 
                         type="submit" 
                         disabled={planLoading}
-                        className="w-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-extrabold py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2.5 transition-all shadow-xl shadow-amber-500/25"
+                        className="w-full charcha-btn py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2.5"
                       >
                         {planLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Calculator className="w-4 h-4" />}
                         Calculate Valuation & Materials
@@ -647,61 +643,61 @@ export default function App() {
                     </form>
                   </div>
 
-                  <div className="lg:col-span-2 glass-panel rounded-3xl p-7 shadow-2xl border border-slate-800/80 flex flex-col justify-between">
+                  <div className="lg:col-span-2 charcha-card p-7 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-sm font-extrabold text-white mb-6">Financials, Valuation & Material Estimation</h3>
+                      <h3 className="text-sm font-extrabold text-[#0F172A] mb-6">Financials, Valuation & Material Estimation</h3>
 
                       {planResult ? (
                         <div className="space-y-6">
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <div className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
-                              <p className="text-[11px] text-slate-400 font-bold uppercase">Total Budget</p>
-                              <p className="text-base font-extrabold text-white mt-1 font-mono">₹{planResult.metrics.total_budget_lakhs} L</p>
+                            <div className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0]">
+                              <p className="text-[11px] text-[#64748B] font-bold uppercase">Total Budget</p>
+                              <p className="text-base font-extrabold text-[#0F172A] mt-1 font-mono">₹{planResult.metrics.total_budget_lakhs} L</p>
                             </div>
-                            <div className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
-                              <p className="text-[11px] text-slate-400 font-bold uppercase">CapEx Incurred</p>
-                              <p className="text-base font-extrabold text-emerald-400 mt-1 font-mono">₹{planResult.metrics.capex_inr_lakhs} L</p>
+                            <div className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0]">
+                              <p className="text-[11px] text-[#64748B] font-bold uppercase">CapEx Incurred</p>
+                              <p className="text-base font-extrabold text-[#4D7C0F] mt-1 font-mono">₹{planResult.metrics.capex_inr_lakhs} L</p>
                             </div>
-                            <div className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
-                              <p className="text-[11px] text-slate-400 font-bold uppercase">Asset Valuation</p>
-                              <p className="text-base font-extrabold text-blue-400 mt-1 font-mono">₹{planResult.metrics.market_valuation_lakhs} L</p>
+                            <div className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0]">
+                              <p className="text-[11px] text-[#64748B] font-bold uppercase">Asset Valuation</p>
+                              <p className="text-base font-extrabold text-[#2563EB] mt-1 font-mono">₹{planResult.metrics.market_valuation_lakhs} L</p>
                             </div>
-                            <div className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
-                              <p className="text-[11px] text-slate-400 font-bold uppercase">Steel Req.</p>
-                              <p className="text-base font-extrabold text-amber-400 mt-1 font-mono">{planResult.metrics.steel_requirement_tons} T</p>
+                            <div className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0]">
+                              <p className="text-[11px] text-[#64748B] font-bold uppercase">Steel Req.</p>
+                              <p className="text-base font-extrabold text-[#D97706] mt-1 font-mono">{planResult.metrics.steel_requirement_tons} T</p>
                             </div>
                           </div>
 
-                          <div className="bg-slate-950/80 p-5 rounded-2xl border border-slate-800/80 space-y-3">
+                          <div className="bg-[#FAFAF9] p-5 rounded-2xl border border-[#E2E8F0] space-y-3">
                             <div className="flex justify-between text-xs font-bold">
-                              <span className="text-slate-400">Milestone Progress Bar</span>
-                              <span className="text-amber-400 font-mono">{planResult.metrics.completion_percentage}% Completed</span>
+                              <span className="text-[#64748B]">Milestone Progress Bar</span>
+                              <span className="text-[#FF5E00] font-mono">{planResult.metrics.completion_percentage}% Completed</span>
                             </div>
-                            <div className="w-full bg-slate-900 h-3 rounded-full overflow-hidden p-0.5 border border-slate-800">
+                            <div className="w-full bg-[#E2E8F0] h-3 rounded-full overflow-hidden p-0.5">
                               <div 
-                                className="bg-gradient-to-r from-amber-500 to-amber-400 h-full rounded-full transition-all duration-700 shadow-md" 
+                                className="bg-[#FF5E00] h-full rounded-full transition-all duration-700 shadow-sm" 
                                 style={{ width: `${planResult.metrics.completion_percentage}%` }}
                               ></div>
                             </div>
                           </div>
 
-                          <p className="text-xs text-slate-200 bg-slate-950/80 p-5 rounded-2xl border border-slate-800/80 font-medium">
+                          <p className="text-xs text-[#1E293B] bg-[#FAFAF9] p-5 rounded-2xl border border-[#E2E8F0] font-semibold">
                             {planResult.summary}
                           </p>
 
-                          <div className="bg-slate-950/80 p-5 rounded-2xl border border-slate-800/80">
-                            <h4 className="text-xs font-extrabold text-slate-200 mb-2.5 flex items-center gap-2">
-                              <Layers className="w-4 h-4 text-amber-400" /> Conceptual 3D Architectural Prompt (Pollinations AI)
+                          <div className="bg-[#FAFAF9] p-5 rounded-2xl border border-[#E2E8F0]">
+                            <h4 className="text-xs font-extrabold text-[#0F172A] mb-2.5 flex items-center gap-2">
+                              <Layers className="w-4 h-4 text-[#FF5E00]" /> Conceptual 3D Architectural Prompt (Pollinations AI)
                             </h4>
-                            <code className="text-[11px] text-slate-300 block bg-slate-900 p-3.5 rounded-xl border border-slate-800 font-mono select-all">
+                            <code className="text-[11px] text-[#334155] block bg-white p-3.5 rounded-xl border border-[#CBD5E1] font-mono select-all">
                               {`https://image.pollinations.ai/prompt/Modern%20${encodeURIComponent(structureType)}%20architectural%20rendering,%20photorealistic,%20glass%20facade,%20sustainable%20construction,%208k%20resolution`}
                             </code>
                           </div>
                         </div>
                       ) : (
-                        <div className="h-72 flex flex-col items-center justify-center text-slate-500 border border-dashed border-slate-800 rounded-3xl bg-slate-950/30">
-                          <Calculator className="w-12 h-12 mb-3 opacity-30 text-amber-400 animate-pulse" />
-                          <p className="text-xs font-semibold">Configure parameters and calculate project valuation & material requirements.</p>
+                        <div className="h-72 flex flex-col items-center justify-center text-[#94A3B8] border border-dashed border-[#CBD5E1] rounded-3xl bg-[#FAFAF9]">
+                          <Calculator className="w-12 h-12 mb-3 opacity-45 text-[#FF5E00]" />
+                          <p className="text-xs font-bold text-[#64748B]">Configure parameters and calculate project valuation & material requirements.</p>
                         </div>
                       )}
                     </div>
@@ -716,23 +712,23 @@ export default function App() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.25 }}
                   className="grid grid-cols-1 lg:grid-cols-3 gap-8"
                 >
-                  <div className="glass-panel rounded-3xl p-7 shadow-2xl border border-slate-800/80 space-y-5">
+                  <div className="charcha-card p-7 space-y-5">
                     <div>
-                      <h3 className="text-sm font-extrabold text-white flex items-center gap-2 mb-1">
-                        <CloudSun className="w-4 h-4 text-amber-400" /> Weather-Aware Advisory
+                      <h3 className="text-sm font-extrabold text-[#0F172A] flex items-center gap-2 mb-1">
+                        <CloudSun className="w-4 h-4 text-[#FF5E00]" /> Weather-Aware Advisory
                       </h3>
-                      <p className="text-xs text-slate-400">Select site weather & consult assistant.</p>
+                      <p className="text-xs text-[#64748B]">Select site weather & consult assistant.</p>
                     </div>
 
                     <div>
-                      <label className="text-xs font-bold text-slate-300 block mb-1.5">Site Weather Condition</label>
+                      <label className="text-xs font-bold text-[#1E293B] block mb-1.5">Site Weather Condition</label>
                       <select 
                         value={weatherCondition} 
                         onChange={(e) => setWeatherCondition(e.target.value)}
-                        className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-3 text-xs text-slate-200 focus:outline-none focus:border-amber-500 font-semibold"
+                        className="w-full bg-[#FAFAF9] border border-[#CBD5E1] rounded-xl px-3.5 py-3 text-xs text-[#0F172A] focus:outline-none focus:border-[#FF5E00] font-bold"
                       >
                         <option value="Normal">Normal Operating Conditions</option>
                         <option value="High Wind">High Wind (Crane Hazard)</option>
@@ -741,9 +737,9 @@ export default function App() {
                       </select>
                     </div>
 
-                    <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-2xl text-xs text-amber-200">
-                      <p className="font-bold mb-1">Dynamic Protocol:</p>
-                      <p className="text-[11px] text-amber-300/90 leading-relaxed font-medium">
+                    <div className="p-4 bg-[#FFF7ED] border border-[#FED7AA] rounded-2xl text-xs text-[#9A3412]">
+                      <p className="font-extrabold mb-1">Dynamic Protocol:</p>
+                      <p className="text-[11px] text-[#7C2D12] leading-relaxed font-semibold">
                         {weatherCondition === 'High Wind' && 'Suspend tower crane operations immediately. Secure loose scaffolding.'}
                         {weatherCondition === 'Heavy Rain' && 'Inspect site drainage pumps, protect electrical panels, and halt external pouring.'}
                         {weatherCondition === 'Extreme Heat' && 'Enforce hourly hydration breaks, mandate shade coverings, and rotate shifts.'}
@@ -751,20 +747,20 @@ export default function App() {
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-slate-800">
-                      <h4 className="text-xs font-extrabold text-white mb-2">Ask Construction Assistant</h4>
+                    <div className="pt-4 border-t border-[#E2E8F0]">
+                      <h4 className="text-xs font-extrabold text-[#0F172A] mb-2">Ask Construction Assistant</h4>
                       <form onSubmit={handleChat} className="space-y-3">
                         <textarea 
                           rows="3"
                           value={chatQuestion}
                           onChange={(e) => setChatQuestion(e.target.value)}
                           placeholder="e.g. Recommended curing period for M25 grade concrete under extreme heat?"
-                          className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-xs text-slate-200 focus:outline-none focus:border-amber-500 resize-none font-medium"
+                          className="w-full bg-[#FAFAF9] border border-[#CBD5E1] rounded-xl p-3.5 text-xs text-[#0F172A] focus:outline-none focus:border-[#FF5E00] resize-none font-medium"
                         ></textarea>
                         <button 
                           type="submit"
                           disabled={chatLoading || !chatQuestion}
-                          className="w-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 hover:from-amber-400 hover:to-orange-500 disabled:opacity-50 text-slate-950 font-extrabold py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2 transition-all shadow-xl shadow-amber-500/25"
+                          className="w-full charcha-btn py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2 disabled:opacity-50"
                         >
                           {chatLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                           Send Engineering Query
@@ -773,35 +769,35 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="lg:col-span-2 glass-panel rounded-3xl p-7 shadow-2xl border border-slate-800/80 flex flex-col justify-between">
+                  <div className="lg:col-span-2 charcha-card p-7 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-sm font-extrabold text-white mb-6">Engineering Advisory & Assistant Response</h3>
+                      <h3 className="text-sm font-extrabold text-[#0F172A] mb-6">Engineering Advisory & Assistant Response</h3>
 
                       {chatResult ? (
                         <div className="space-y-5">
-                          <div className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80">
-                            <p className="text-xs font-extrabold text-amber-400 mb-1">Weather Protocol Active: {weatherCondition}</p>
-                            <p className="text-xs text-slate-300 font-medium">{chatResult.weather_alert}</p>
+                          <div className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0]">
+                            <p className="text-xs font-extrabold text-[#FF5E00] mb-1">Weather Protocol Active: {weatherCondition}</p>
+                            <p className="text-xs text-[#334155] font-semibold">{chatResult.weather_alert}</p>
                           </div>
 
-                          <p className="text-xs text-slate-200 bg-slate-950/80 p-5 rounded-2xl border border-slate-800/80 leading-relaxed font-medium">
+                          <p className="text-xs text-[#1E293B] bg-[#FAFAF9] p-5 rounded-2xl border border-[#E2E8F0] leading-relaxed font-semibold">
                             {chatResult.summary}
                           </p>
 
                           <div className="space-y-3">
-                            <h4 className="text-xs font-extrabold text-slate-200 uppercase tracking-wider">Key Recommendations & IS Guidelines</h4>
+                            <h4 className="text-xs font-extrabold text-[#0F172A] uppercase tracking-wider">Key Recommendations & IS Guidelines</h4>
                             {chatResult.recommendations?.map((rec, i) => (
-                              <div key={i} className="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80 flex items-start gap-3 text-xs text-slate-200 font-medium">
-                                <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                              <div key={i} className="bg-[#FAFAF9] p-4 rounded-2xl border border-[#E2E8F0] flex items-start gap-3 text-xs text-[#1E293B] font-semibold">
+                                <CheckCircle className="w-4 h-4 text-[#84CC16] shrink-0 mt-0.5" />
                                 <span className="leading-relaxed">{rec}</span>
                               </div>
                             ))}
                           </div>
                         </div>
                       ) : (
-                        <div className="h-72 flex flex-col items-center justify-center text-slate-500 border border-dashed border-slate-800 rounded-3xl bg-slate-950/30">
-                          <CloudSun className="w-12 h-12 mb-3 opacity-30 text-amber-400 animate-pulse" />
-                          <p className="text-xs font-semibold">Select site weather or ask a construction query to receive expert AI advisory.</p>
+                        <div className="h-72 flex flex-col items-center justify-center text-[#94A3B8] border border-dashed border-[#CBD5E1] rounded-3xl bg-[#FAFAF9]">
+                          <CloudSun className="w-12 h-12 mb-3 opacity-45 text-[#FF5E00]" />
+                          <p className="text-xs font-bold text-[#64748B]">Select site weather or ask a construction query to receive expert AI advisory.</p>
                         </div>
                       )}
                     </div>
