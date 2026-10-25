@@ -99,7 +99,7 @@ export default function CrackAnalysis({ healthInfo }) {
       Moderate: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
       Routine: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
     };
-    return map[urgency] || 'bg-slate-800 text-slate-300 border-slate-700';
+    return map[urgency] || 'bg-[#F1F5F9] text-[#334155] border-[#CBD5E1]';
   };
 
   return (
@@ -114,7 +114,7 @@ export default function CrackAnalysis({ healthInfo }) {
         <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
           Crack Diagnostics & Structural Integrity Assessment
         </h2>
-        <p className="text-slate-400 text-sm mt-1">
+        <p className="text-[#64748B] text-sm mt-1">
           Evaluate concrete, masonry, and beam surface cracks. Classify fracture morphology, width, root causes, and repair methods.
         </p>
       </div>
@@ -122,29 +122,29 @@ export default function CrackAnalysis({ healthInfo }) {
       <DisclaimerBanner />
 
       {/* Upload and Control Card */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+      <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           {/* Uploader Box */}
-          <div className="border-2 border-dashed border-slate-700 hover:border-rose-500/60 rounded-xl p-6 text-center transition-colors relative flex flex-col items-center justify-center min-h-[220px] bg-slate-950/40">
+          <div className="border-2 border-dashed border-[#CBD5E1] hover:border-rose-500/60 rounded-xl p-6 text-center transition-colors relative flex flex-col items-center justify-center min-h-[220px] bg-[#FAFAF9]/40">
             {previewUrl ? (
               <div className="w-full flex flex-col items-center">
                 <img
                   src={previewUrl}
                   alt="Crack Surface Preview"
-                  className="max-h-52 w-auto object-contain rounded-lg border border-slate-800 shadow-md"
+                  className="max-h-52 w-auto object-contain rounded-lg border border-[#E2E8F0] shadow-md"
                 />
-                <p className="text-xs text-slate-400 mt-2 truncate max-w-xs font-mono">
+                <p className="text-xs text-[#64748B] mt-2 truncate max-w-xs font-mono">
                   {selectedFile?.name || "crack_photo.jpg"}
                 </p>
               </div>
             ) : (
               <>
-                <UploadCloud className="w-12 h-12 text-slate-500 mb-3" />
-                <p className="text-sm font-medium text-slate-300">
+                <UploadCloud className="w-12 h-12 text-[#64748B] mb-3" />
+                <p className="text-sm font-medium text-[#334155]">
                   Drag & drop wall or concrete image, or{' '}
                   <span className="text-rose-400 hover:underline cursor-pointer">browse</span>
                 </p>
-                <p className="text-xs text-slate-500 mt-1">Supports JPG, PNG, WebP up to 15MB</p>
+                <p className="text-xs text-[#64748B] mt-1">Supports JPG, PNG, WebP up to 15MB</p>
               </>
             )}
             <input
@@ -157,12 +157,12 @@ export default function CrackAnalysis({ healthInfo }) {
 
           {/* Action buttons & Info */}
           <div className="space-y-4">
-            <div className="bg-slate-800/40 border border-slate-700/60 rounded-xl p-4 text-xs text-slate-300 space-y-2">
+            <div className="bg-[#F1F5F9]/40 border border-[#CBD5E1]/60 rounded-xl p-4 text-xs text-[#334155] space-y-2">
               <div className="font-semibold text-white flex items-center gap-1.5">
                 <Activity className="w-4 h-4 text-rose-400" />
                 Classification Categories:
               </div>
-              <ul className="grid grid-cols-2 gap-2 text-slate-400">
+              <ul className="grid grid-cols-2 gap-2 text-[#64748B]">
                 <li>• Hairline Shrinkage (&lt;0.3mm)</li>
                 <li>• Differential Settlement</li>
                 <li>• Structural Shear (45° angle)</li>
@@ -176,7 +176,7 @@ export default function CrackAnalysis({ healthInfo }) {
               <button
                 onClick={runAnalysis}
                 disabled={loading || !selectedFile}
-                className="flex-1 bg-rose-500 hover:bg-rose-400 disabled:bg-slate-800 disabled:text-slate-600 text-white font-bold px-5 py-3 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
+                className="flex-1 bg-rose-500 hover:bg-rose-400 disabled:bg-[#F1F5F9] disabled:text-slate-600 text-white font-bold px-5 py-3 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <>
@@ -194,7 +194,7 @@ export default function CrackAnalysis({ healthInfo }) {
               <button
                 onClick={loadSampleCrack}
                 type="button"
-                className="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl border border-slate-700 transition-colors flex items-center gap-2"
+                className="px-4 py-3 bg-[#F1F5F9] hover:bg-slate-700 text-[#0F172A] text-xs font-semibold rounded-xl border border-[#CBD5E1] transition-colors flex items-center gap-2"
                 title="Load a sample cracked concrete wall for instant testing"
               >
                 <ImageIcon className="w-4 h-4 text-rose-400" />
@@ -217,40 +217,40 @@ export default function CrackAnalysis({ healthInfo }) {
         <div className="space-y-6 animate-fade-in">
           {/* Top Diagnostics Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-              <div className="text-xs text-slate-400 uppercase tracking-wider font-medium">Defect Classification</div>
+            <div className="bg-white border border-[#E2E8F0] rounded-xl p-5">
+              <div className="text-xs text-[#64748B] uppercase tracking-wider font-medium">Defect Classification</div>
               <div className="mt-2 text-base sm:text-lg font-bold text-white truncate">
                 {result.defect_type || 'Structural Defect'}
               </div>
-              <p className="text-[11px] text-slate-500 mt-1">Morphology match</p>
+              <p className="text-[11px] text-[#64748B] mt-1">Morphology match</p>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-              <div className="text-xs text-slate-400 uppercase tracking-wider font-medium">Estimated Crack Width</div>
+            <div className="bg-white border border-[#E2E8F0] rounded-xl p-5">
+              <div className="text-xs text-[#64748B] uppercase tracking-wider font-medium">Estimated Crack Width</div>
               <div className="mt-2 text-xl font-bold text-amber-400">
                 {result.estimated_width_mm || '2.0 - 4.0 mm'}
               </div>
-              <p className="text-[11px] text-slate-500 mt-1">Threshold: 0.3mm (IS 456)</p>
+              <p className="text-[11px] text-[#64748B] mt-1">Threshold: 0.3mm (IS 456)</p>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-              <div className="text-xs text-slate-400 uppercase tracking-wider font-medium">Inspection Urgency</div>
+            <div className="bg-white border border-[#E2E8F0] rounded-xl p-5">
+              <div className="text-xs text-[#64748B] uppercase tracking-wider font-medium">Inspection Urgency</div>
               <div className="mt-2">
                 <span className={`inline-block px-2.5 py-1 text-xs font-bold rounded-lg border ${getUrgencyBadge(result.urgency)}`}>
                   {result.urgency || 'High'}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500 mt-1">Action timeframe</p>
+              <p className="text-[11px] text-[#64748B] mt-1">Action timeframe</p>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between">
+            <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 flex flex-col justify-between">
               <div>
-                <div className="text-xs text-slate-400 uppercase tracking-wider font-medium">Diagnostic Report</div>
-                <div className="text-xs text-slate-400 mt-1">Export structured forensics</div>
+                <div className="text-xs text-[#64748B] uppercase tracking-wider font-medium">Diagnostic Report</div>
+                <div className="text-xs text-[#64748B] mt-1">Export structured forensics</div>
               </div>
               <button
                 onClick={downloadJsonReport}
-                className="mt-2 w-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold py-1.5 px-3 rounded-lg border border-slate-700 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                className="mt-2 w-full bg-[#F1F5F9] hover:bg-slate-700 text-[#0F172A] text-xs font-semibold py-1.5 px-3 rounded-lg border border-[#CBD5E1] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5 text-rose-400" />
                 <span>Download Report</span>
@@ -259,12 +259,12 @@ export default function CrackAnalysis({ healthInfo }) {
           </div>
 
           {/* Diagnostic Summary */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
             <h3 className="text-sm font-bold uppercase tracking-wider text-rose-400 mb-2 flex items-center gap-2">
               <FileText className="w-4 h-4" />
               Diagnostic Engineering Summary
             </h3>
-            <p className="text-slate-200 text-sm leading-relaxed">
+            <p className="text-[#0F172A] text-sm leading-relaxed">
               {result.summary}
             </p>
           </div>
@@ -272,14 +272,14 @@ export default function CrackAnalysis({ healthInfo }) {
           {/* Root Causes & Recommended Repairs */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Root Causes */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
               <h3 className="text-sm font-bold uppercase tracking-wider text-amber-400 mb-4 flex items-center gap-2">
                 <Layers className="w-4 h-4" />
                 Identified Root Causes
               </h3>
               <ul className="space-y-2.5">
                 {(result.root_causes || result.findings)?.map((cause, idx) => (
-                  <li key={idx} className="text-xs text-slate-300 flex items-start gap-2">
+                  <li key={idx} className="text-xs text-[#334155] flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0"></span>
                     <span>{cause}</span>
                   </li>
@@ -288,14 +288,14 @@ export default function CrackAnalysis({ healthInfo }) {
             </div>
 
             {/* Recommended Engineering Repairs */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
               <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-400 mb-4 flex items-center gap-2">
                 <Wrench className="w-4 h-4" />
                 Recommended Engineering Repairs
               </h3>
               <ul className="space-y-2.5">
                 {(result.recommended_repairs || result.recommendations)?.map((repair, idx) => (
-                  <li key={idx} className="text-xs text-slate-300 flex items-start gap-2">
+                  <li key={idx} className="text-xs text-[#334155] flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
                     <span>{repair}</span>
                   </li>
@@ -306,14 +306,14 @@ export default function CrackAnalysis({ healthInfo }) {
 
           {/* Engineering Observations */}
           {result.findings && (
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
               <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
                 Detailed Surface Observations & Forensic Notes
               </h3>
               <div className="space-y-2">
                 {result.findings.map((f, idx) => (
-                  <div key={idx} className="bg-slate-950/60 border border-slate-800/80 rounded-xl p-3 text-xs text-slate-300 flex items-start gap-2">
-                    <span className="text-slate-500 font-mono mt-0.5">#{idx + 1}</span>
+                  <div key={idx} className="bg-[#FAFAF9]/60 border border-[#E2E8F0]/80 rounded-xl p-3 text-xs text-[#334155] flex items-start gap-2">
+                    <span className="text-[#64748B] font-mono mt-0.5">#{idx + 1}</span>
                     <span>{f}</span>
                   </div>
                 ))}

@@ -99,7 +99,7 @@ export default function SafetyAnalysis({ healthInfo }) {
       High: 'bg-orange-500/10 text-orange-400 border-orange-500/30',
       Critical: 'bg-rose-500/10 text-rose-400 border-rose-500/30 animate-pulse',
     };
-    return map[level] || 'bg-slate-800 text-slate-300 border-slate-700';
+    return map[level] || 'bg-[#F1F5F9] text-[#334155] border-[#CBD5E1]';
   };
 
   return (
@@ -114,7 +114,7 @@ export default function SafetyAnalysis({ healthInfo }) {
         <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
           Construction Site Safety & PPE Audit
         </h2>
-        <p className="text-slate-400 text-sm mt-1">
+        <p className="text-[#64748B] text-sm mt-1">
           Automated multimodal computer vision inspecting personal protective equipment (PPE) compliance and detecting site hazards.
         </p>
       </div>
@@ -122,29 +122,29 @@ export default function SafetyAnalysis({ healthInfo }) {
       <DisclaimerBanner />
 
       {/* Upload and Control Card */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+      <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           {/* Uploader Box */}
-          <div className="border-2 border-dashed border-slate-700 hover:border-amber-500/60 rounded-xl p-6 text-center transition-colors relative flex flex-col items-center justify-center min-h-[220px] bg-slate-950/40">
+          <div className="border-2 border-dashed border-[#CBD5E1] hover:border-amber-500/60 rounded-xl p-6 text-center transition-colors relative flex flex-col items-center justify-center min-h-[220px] bg-[#FAFAF9]/40">
             {previewUrl ? (
               <div className="w-full flex flex-col items-center">
                 <img
                   src={previewUrl}
                   alt="Site Preview"
-                  className="max-h-52 w-auto object-contain rounded-lg border border-slate-800 shadow-md"
+                  className="max-h-52 w-auto object-contain rounded-lg border border-[#E2E8F0] shadow-md"
                 />
-                <p className="text-xs text-slate-400 mt-2 truncate max-w-xs font-mono">
+                <p className="text-xs text-[#64748B] mt-2 truncate max-w-xs font-mono">
                   {selectedFile?.name || "site_image.jpg"}
                 </p>
               </div>
             ) : (
               <>
-                <UploadCloud className="w-12 h-12 text-slate-500 mb-3" />
-                <p className="text-sm font-medium text-slate-300">
+                <UploadCloud className="w-12 h-12 text-[#64748B] mb-3" />
+                <p className="text-sm font-medium text-[#334155]">
                   Drag & drop site photo, or{' '}
                   <span className="text-amber-400 hover:underline cursor-pointer">browse</span>
                 </p>
-                <p className="text-xs text-slate-500 mt-1">Supports JPG, PNG, WebP up to 15MB</p>
+                <p className="text-xs text-[#64748B] mt-1">Supports JPG, PNG, WebP up to 15MB</p>
               </>
             )}
             <input
@@ -157,12 +157,12 @@ export default function SafetyAnalysis({ healthInfo }) {
 
           {/* Action buttons & Info */}
           <div className="space-y-4">
-            <div className="bg-slate-800/40 border border-slate-700/60 rounded-xl p-4 text-xs text-slate-300 space-y-2">
+            <div className="bg-[#F1F5F9]/40 border border-[#CBD5E1]/60 rounded-xl p-4 text-xs text-[#334155] space-y-2">
               <div className="font-semibold text-white flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-amber-400" />
                 Audited Safety Criteria:
               </div>
-              <ul className="grid grid-cols-2 gap-2 text-slate-400">
+              <ul className="grid grid-cols-2 gap-2 text-[#64748B]">
                 <li>• Hard Hats (ANSI Z89.1)</li>
                 <li>• High-Vis Class 2/3 Vests</li>
                 <li>• Steel-Toe Boots (ASTM F2413)</li>
@@ -176,7 +176,7 @@ export default function SafetyAnalysis({ healthInfo }) {
               <button
                 onClick={runAnalysis}
                 disabled={loading || !selectedFile}
-                className="flex-1 bg-amber-500 hover:bg-amber-400 disabled:bg-slate-800 disabled:text-slate-600 text-slate-950 font-bold px-5 py-3 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
+                className="flex-1 bg-amber-500 hover:bg-amber-400 disabled:bg-[#F1F5F9] disabled:text-slate-600 text-slate-950 font-bold px-5 py-3 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <>
@@ -194,7 +194,7 @@ export default function SafetyAnalysis({ healthInfo }) {
               <button
                 onClick={loadSampleImage}
                 type="button"
-                className="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl border border-slate-700 transition-colors flex items-center gap-2"
+                className="px-4 py-3 bg-[#F1F5F9] hover:bg-slate-700 text-[#0F172A] text-xs font-semibold rounded-xl border border-[#CBD5E1] transition-colors flex items-center gap-2"
                 title="Load a pre-configured construction photo for instant demonstration"
               >
                 <ImageIcon className="w-4 h-4 text-amber-400" />
@@ -217,15 +217,15 @@ export default function SafetyAnalysis({ healthInfo }) {
         <div className="space-y-6 animate-fade-in">
           {/* Top Metrics Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-              <div className="text-xs text-slate-400 uppercase tracking-wider font-medium">Safety Score</div>
+            <div className="bg-white border border-[#E2E8F0] rounded-xl p-5">
+              <div className="text-xs text-[#64748B] uppercase tracking-wider font-medium">Safety Score</div>
               <div className="mt-2 flex items-baseline gap-2">
                 <span className="text-4xl font-extrabold text-white">
                   {result.safety_score !== undefined ? result.safety_score : '72'}
                 </span>
-                <span className="text-xs text-slate-400">/ 100</span>
+                <span className="text-xs text-[#64748B]">/ 100</span>
               </div>
-              <div className="w-full bg-slate-800 h-2 rounded-full mt-3 overflow-hidden">
+              <div className="w-full bg-[#F1F5F9] h-2 rounded-full mt-3 overflow-hidden">
                 <div 
                   className={`h-full rounded-full transition-all duration-500 ${
                     (result.safety_score || 72) > 75 ? 'bg-emerald-500' : (result.safety_score || 72) > 50 ? 'bg-amber-500' : 'bg-rose-500'
@@ -235,26 +235,26 @@ export default function SafetyAnalysis({ healthInfo }) {
               </div>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-              <div className="text-xs text-slate-400 uppercase tracking-wider font-medium">Overall Risk Level</div>
+            <div className="bg-white border border-[#E2E8F0] rounded-xl p-5">
+              <div className="text-xs text-[#64748B] uppercase tracking-wider font-medium">Overall Risk Level</div>
               <div className="mt-2">
                 <span className={`inline-block px-3 py-1 text-sm font-bold rounded-lg border ${getRiskBadge(result.risk_level)}`}>
                   {result.risk_level || 'Medium'}
                 </span>
               </div>
-              <p className="text-xs text-slate-500 mt-2">
+              <p className="text-xs text-[#64748B] mt-2">
                 {result.demo_mode ? 'Demonstration Mode' : 'Evaluated via Live Gemini 2.5'}
               </p>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between">
+            <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 flex flex-col justify-between">
               <div>
-                <div className="text-xs text-slate-400 uppercase tracking-wider font-medium">Report Actions</div>
-                <div className="text-xs text-slate-300 mt-1">Export structured audit data for site superintendents</div>
+                <div className="text-xs text-[#64748B] uppercase tracking-wider font-medium">Report Actions</div>
+                <div className="text-xs text-[#334155] mt-1">Export structured audit data for site superintendents</div>
               </div>
               <button
                 onClick={downloadJsonReport}
-                className="mt-3 w-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold py-2 px-3 rounded-lg border border-slate-700 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                className="mt-3 w-full bg-[#F1F5F9] hover:bg-slate-700 text-[#0F172A] text-xs font-semibold py-2 px-3 rounded-lg border border-[#CBD5E1] flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5 text-amber-400" />
                 <span>Download JSON Report</span>
@@ -263,30 +263,30 @@ export default function SafetyAnalysis({ healthInfo }) {
           </div>
 
           {/* Executive Summary */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
             <h3 className="text-sm font-bold uppercase tracking-wider text-amber-400 mb-2 flex items-center gap-2">
               <FileText className="w-4 h-4" />
               Executive Audit Summary
             </h3>
-            <p className="text-slate-200 text-sm leading-relaxed">
+            <p className="text-[#0F172A] text-sm leading-relaxed">
               {result.summary}
             </p>
           </div>
 
           {/* PPE Detection Checklist */}
           {result.ppe_compliance && (
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
               <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
                 PPE Compliance Checklist (OSHA / IS 456)
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {result.ppe_compliance.map((item, idx) => (
-                  <div key={idx} className="bg-slate-950/60 border border-slate-800/80 rounded-xl p-4 flex flex-col justify-between">
+                  <div key={idx} className="bg-[#FAFAF9]/60 border border-[#E2E8F0]/80 rounded-xl p-4 flex flex-col justify-between">
                     <div>
-                      <div className="text-xs font-semibold text-slate-200">{item.item}</div>
-                      <div className="text-[11px] text-slate-400 mt-1">Compliance: {item.compliance_rate}</div>
+                      <div className="text-xs font-semibold text-[#0F172A]">{item.item}</div>
+                      <div className="text-[11px] text-[#64748B] mt-1">Compliance: {item.compliance_rate}</div>
                     </div>
-                    <div className="mt-3 pt-3 border-t border-slate-800 flex items-center justify-between">
+                    <div className="mt-3 pt-3 border-t border-[#E2E8F0] flex items-center justify-between">
                       <span className={`text-[11px] font-bold px-2 py-0.5 rounded ${
                         item.status === 'Compliant'
                           ? 'bg-emerald-500/10 text-emerald-400'
@@ -310,14 +310,14 @@ export default function SafetyAnalysis({ healthInfo }) {
 
           {/* Hazards & Corrective Remedies */}
           {result.hazards && result.hazards.length > 0 && (
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
               <h3 className="text-sm font-bold uppercase tracking-wider text-rose-400 mb-4 flex items-center gap-2">
                 <AlertTriangle className="w-4 h-4" />
                 Identified Site Hazards & Required Corrective Remedies
               </h3>
               <div className="space-y-3">
                 {result.hazards.map((hz, idx) => (
-                  <div key={idx} className="bg-slate-950/70 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div key={idx} className="bg-[#FAFAF9]/70 border border-[#E2E8F0] rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-white text-sm">{hz.hazard}</span>
@@ -325,7 +325,7 @@ export default function SafetyAnalysis({ healthInfo }) {
                           {hz.severity}
                         </span>
                       </div>
-                      <div className="text-xs text-slate-400">
+                      <div className="text-xs text-[#64748B]">
                         <span className="text-amber-400 font-medium">Remedy:</span> {hz.remedy}
                       </div>
                     </div>
@@ -338,14 +338,14 @@ export default function SafetyAnalysis({ healthInfo }) {
           {/* Findings and Recommendations Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Findings */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
               <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
                 <Check className="w-4 h-4 text-blue-400" />
                 Detailed Visual Findings
               </h3>
               <ul className="space-y-2.5">
                 {result.findings?.map((f, idx) => (
-                  <li key={idx} className="text-xs text-slate-300 flex items-start gap-2">
+                  <li key={idx} className="text-xs text-[#334155] flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-1.5 shrink-0"></span>
                     <span>{f}</span>
                   </li>
@@ -354,14 +354,14 @@ export default function SafetyAnalysis({ healthInfo }) {
             </div>
 
             {/* Recommendations */}
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6">
               <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
                 Mandatory Safety Directives
               </h3>
               <ul className="space-y-2.5">
                 {result.recommendations?.map((r, idx) => (
-                  <li key={idx} className="text-xs text-slate-300 flex items-start gap-2">
+                  <li key={idx} className="text-xs text-[#334155] flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
                     <span>{r}</span>
                   </li>
